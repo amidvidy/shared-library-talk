@@ -44,8 +44,3 @@ namespace factorial {
     }
 
 }
-
-int main() {
-    factorial::calculator fact{factorial::options{}};
-    std::cout << fact(10) << std::endl;
-}
