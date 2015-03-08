@@ -4,9 +4,8 @@
 
 namespace factorial {
 
-    using std::experimental::optional;
-    using std::experimental::nullopt_t;
-    using std::experimental::make_optional;
+    using core::nullopt_t;
+    using core::make_optional;
 
     //==================== memoizer ====================//
 
@@ -22,9 +21,16 @@ namespace factorial {
         return {};
     }
 
-    //==================== factorial ====================//
+    //==================== calculator ====================//
 
-    uint64_t factorial::calculate(uint64_t input) {
+    calculator::calculator(options opts)
+        : _opts(std::move(opts))
+        , _mem{} {
+
+        _mem.store(0, 1);
+    }
+
+    uint64_t calculator::calculate(uint64_t input) {
         auto stored_res = _mem.get(input);
         if (stored_res) return stored_res.value();
 
