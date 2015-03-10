@@ -10,11 +10,14 @@
 // This might be the way you would do it if this code was part of your
 // application.
 
+#define FACTORIAL_API __attribute__ ((visibility ("default")))
+#define FACTORIAL_PRIVATE __attribute__ ((visibility ("default")))
+
 namespace factorial {
 
     using core::optional;
 
-    struct options {
+    struct FACTORIAL_API options {
         options() = default;
         options(options&&) = default;
 
@@ -29,7 +32,7 @@ namespace factorial {
         std::unordered_map<uint64_t, uint64_t> _data;
     };
 
-    class calculator {
+    class FACTORIAL_API calculator {
     public:
         calculator(options opts);
         uint64_t calculate(uint64_t input);
