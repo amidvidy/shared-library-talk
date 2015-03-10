@@ -5,10 +5,10 @@ else
 fi
 
 echo "building library..."
+
 set -o verbose
-c++ --std=c++11 -c factorial.cpp
-c++ factorial.o -shared -o libfactorial.dylib
+c++ --std=c++11 -fvisibility=hidden -c factorial.cpp
+c++ factorial.o -fvisibility=hidden -shared -o libfactorial.dylib
 set +o verbose
+
 echo "...done!"
-
-

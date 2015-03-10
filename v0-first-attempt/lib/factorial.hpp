@@ -14,13 +14,6 @@ namespace factorial {
 
     using core::optional;
 
-    struct options {
-        options() = default;
-        options(options&&) = default;
-
-        bool memoize{true};
-    };
-
     class memoizer {
     public:
         void store(uint64_t input, uint64_t output);
@@ -31,11 +24,10 @@ namespace factorial {
 
     class calculator {
     public:
-        calculator(options opts);
+        calculator();
         uint64_t calculate(uint64_t input);
         inline uint64_t operator()(uint64_t input);
     private:
-        options _opts;
         memoizer _mem;
     };
 

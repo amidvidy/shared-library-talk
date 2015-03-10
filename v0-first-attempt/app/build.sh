@@ -1,7 +1,9 @@
+set -o errexit
+
 if [[ $(uname) == 'Darwin' ]]; then
-    export DYLD_LIBRARY_PATH=$LD_LIBRARY_PATH:../lib
+    export DYLD_LIBRARY_PATH=../lib
 else
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../lib
+    export LD_LIBRARY_PATH=../lib
 fi
 
 set -o verbose

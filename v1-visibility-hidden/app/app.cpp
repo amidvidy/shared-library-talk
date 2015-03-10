@@ -3,7 +3,6 @@
 #include <factorial.hpp>
 
 int main(int, char**) {
-    factorial::calculator fact{factorial::options{}};
-
+    factorial::calculator fact{};
     std::cout << fact(20) << std::endl;
 }

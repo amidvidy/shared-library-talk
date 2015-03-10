@@ -23,10 +23,8 @@ namespace factorial {
 
     //==================== calculator ====================//
 
-    calculator::calculator(options opts)
-        : _opts(std::move(opts))
-        , _mem{} {
-
+    calculator::calculator()
+        : _mem{} {
         _mem.store(0, 1);
     }
 
