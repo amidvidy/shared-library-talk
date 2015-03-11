@@ -8,7 +8,7 @@
 // Adding visibility annotations and compiling with -fvisibility=hidden
 
 #define FACTORIAL_API __attribute__ ((visibility ("default")))
-#define FACTORIAL_PRIVATE __attribute__ ((visibility ("default")))
+#define FACTORIAL_PRIVATE __attribute__ ((visibility ("hidden")))
 
 namespace factorial {
 

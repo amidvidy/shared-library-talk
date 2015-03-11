@@ -3,6 +3,6 @@ if [[ $(uname) == 'Darwin' ]]; then
 else
     export LD_LIBRARY_PATH=../lib
 fi
-set -o verbose    
-c++ app.cpp --std=c++1y -o app -I../lib -L../lib -lfactorial
+set -o verbose
+c++ app.cpp -Wall --std=c++1y -o app -I../lib -L../lib -lfactorial
 set +o verbose

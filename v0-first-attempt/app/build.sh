@@ -9,7 +9,7 @@ fi
 set -o verbose
 
 echo "building application..."
-c++ app.cpp --std=c++1y -o app -I../lib -L../lib -lfactorial
+c++ app.cpp -Wall --std=c++1y -o app -I../lib -L../lib -lfactorial
 echo "...done!"
 
 set +o verbose
