@@ -25,6 +25,13 @@ namespace factorial {
     class FACTORIAL_API calculator {
     public:
         calculator();
+
+        calculator(const calculator&) = delete;
+        calculator& operator=(const calculator&) = delete;
+
+        calculator(calculator&&) noexcept = default;
+        calculator& operator=(calculator&&) noexcept = default;
+
         uint64_t calculate(uint64_t input);
         inline uint64_t operator()(uint64_t input);
     private:

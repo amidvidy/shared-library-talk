@@ -7,9 +7,10 @@
 
 namespace factorial {
 
-    using ::core::nullopt_t;
     using ::core::make_optional;
     using ::core::make_unique;
+    using ::core::nullopt_t;
+    using ::core::optional;
 
     namespace {
 
@@ -59,8 +60,8 @@ namespace factorial {
     // see header for why this is needed.
     calculator::~calculator() = default;
 
-    calculator::calculator(calculator&&) = default;
-    calculator& calculator::operator=(calculator&&) = default;
+    calculator::calculator(calculator&&) noexcept = default;
+    calculator& calculator::operator=(calculator&&) noexcept = default;
 
     uint64_t calculator::calculate(uint64_t input) {
         return _impl->calculate(input);
