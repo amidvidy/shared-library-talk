@@ -56,6 +56,11 @@ namespace factorial {
         : _impl{core::make_unique<impl>()}
     {}
 
+    // see header for why this is needed.
+    calculator::~calculator() = default;
+
+    calculator::calculator(calculator&&) = default;
+    calculator& calculator::operator=(calculator&&) = default;
 
     uint64_t calculator::calculate(uint64_t input) {
         return _impl->calculate(input);
