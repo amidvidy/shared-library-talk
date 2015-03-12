@@ -2,16 +2,10 @@
 
 set -o errexit
 
-if [[ $(uname) == 'Darwin' ]]; then
-    export DYLD_LIBRARY_PATH=../lib
-else
-    export LD_LIBRARY_PATH=../lib
-fi
-
 set -o verbose
 
 echo "building application..."
-c++ app.cpp -Wall --std=c++1y -o app -I../lib -L../lib -lfactorial
+c++ app.cpp -Wall --std=c++1y -o app -I../lib -L../lib -Wl,-rpath='$ORIGIN/../lib' -lfactorial
 echo "...done!"
 
 set +o verbose
