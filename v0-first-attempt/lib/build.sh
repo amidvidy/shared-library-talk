@@ -1,15 +1,9 @@
 #!/bin/bash
 
-if [[ $(uname) == 'Darwin' ]]; then
-    LIB='libfactorial.dylib'
-else
-    LIB='libfactorial.so'
-fi
-
 echo "building library..."
 set -o verbose
 
-c++ factorial.cpp -Wall --std=c++1y -fpic -shared -o $LIB
+c++ factorial.cpp -Wall --std=c++1y -fpic -shared -o libfactorial.so
 
 set +o verbose
 echo "...done!"

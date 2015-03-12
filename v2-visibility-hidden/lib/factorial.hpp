@@ -6,9 +6,8 @@
 #include <core/optional.hpp>
 
 // Adding visibility annotations and compiling with -fvisibility=hidden
-
-#define FACTORIAL_API __attribute__ ((visibility ("default")))
-#define FACTORIAL_PRIVATE __attribute__ ((visibility ("hidden")))
+#define FACTORIAL_API [[gnu::visibility("default")]]
+#define FACTORIAL_PRIVATE [[gnu::visibility("hidden")]]
 
 namespace factorial {
 
@@ -29,8 +28,8 @@ namespace factorial {
         calculator(const calculator&) = delete;
         calculator& operator=(const calculator&) = delete;
 
-        calculator(calculator&&) noexcept = default;
-        calculator& operator=(calculator&&) noexcept = default;
+        calculator(calculator&&) = default;
+        calculator& operator=(calculator&&) = default;
 
         uint64_t calculate(uint64_t input);
         inline uint64_t operator()(uint64_t input);

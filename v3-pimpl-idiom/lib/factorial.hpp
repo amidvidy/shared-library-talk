@@ -2,8 +2,8 @@
 // MNMLSTC
 #include <core/optional.hpp>
 
-#define FACTORIAL_API __attribute__ ((visibility ("default")))
-#define FACTORIAL_PRIVATE __attribute__ ((visibility ("hidden")))
+#define FACTORIAL_API [[gnu::visibility("default")]]
+#define FACTORIAL_PRIVATE [[gnu::visibility("hidden")]]
 
 namespace factorial {
 
