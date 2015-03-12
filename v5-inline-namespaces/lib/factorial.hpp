@@ -2,9 +2,12 @@
 // MNMLSTC
 #include <core/optional.hpp>
 
-#define FACTORIAL_API __attribute__ ((visibility ("default")))
-#define FACTORIAL_PRIVATE __attribute__ ((visibility ("hidden")))
-#define FACTORIAL_INLINE inline __attribute__ ((always_inline visibility ("hidden")))
+#define FACTORIAL_API [[gnu::visibility("default")]]
+#define FACTORIAL_PRIVATE [[gnu::visibility("hidden")]]
+// we need to insure that compilers *never* include inline functions in the ABI
+// compilers use heuristics to determine what functions declared inline to actually inline.
+// always_inline forces clang/gcc to inline if possible.
+#define FACTORIAL_INLINE [[gnu::always_inline]] inline
 
 // we want the inline namespace to have the ABI version. This is a super ugly way of doing
 // it, in reality CMake or SCons would make this way nicer.

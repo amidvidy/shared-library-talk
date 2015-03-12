@@ -1,8 +1,9 @@
-if [[ $(uname) == 'Darwin' ]]; then
-    export DYLD_LIBRARY_PATH=$LD_LIBRARY_PATH:../lib
-else
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../lib
-fi
+#!/bin/bash
+
+set -o errexit
+
+echo "building application..."
 set -o verbose
-c++ -Wall app.cpp --std=c++1y -Wall -o app -I../lib -L../lib -lfactorial
+c++ app.cpp -Wall --std=c++1y -o app -I../lib -L../lib -Wl,-rpath='$ORIGIN/../lib' -lfactorial
 set +o verbose
+echo "...done!"
