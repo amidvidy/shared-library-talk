@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -o errexit
 
 if [[ $(uname) == 'Darwin' ]]; then

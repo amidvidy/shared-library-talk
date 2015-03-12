@@ -31,8 +31,8 @@ namespace factorial {
         calculator& operator=(const calculator&) = delete;
 
         // moveable
-        calculator(calculator&&) noexcept = default;
-        calculator& operator=(calculator&&) noexcept = default;
+        calculator(calculator&&) = default;
+        calculator& operator=(calculator&&) = default;
 
         uint64_t calculate(uint64_t input);
         inline uint64_t operator()(uint64_t input);
